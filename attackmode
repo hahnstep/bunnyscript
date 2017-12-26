@@ -1,0 +1,57 @@
+#!/bin/sh
+
+ATTACKMODE (){ 
+	# set pid and vid first
+	for var in $@
+	do 	
+	 case $var in
+	   PID_*)
+	     USB_PID=`echo $var | awk -F _ '{print $2}'`
+	   ;;
+	   VID_*)
+	     USB_VID=`echo $var | awk -F _ '{print $2}'`
+	   ;;
+	 esac
+        done
+
+	for AM in $@;
+	do
+	  case $AM in
+	    ECM_ETHERNET*)
+		USE_ECM=true
+	    ;;
+    	    RNDIS_ETHERNET)
+                USE_RNDIS=true
+	    ;;
+	    STORAGE*)
+		USE_UMS=true
+	    ;;
+	    HID*)
+		USE_HID=true
+	    ;;
+	    RAWHID*)
+	        USE_RAWHID=true
+	    ;;
+	    MOUSE*)
+		USE_HID_MOUSE=true
+   	    ;;
+	    WIFI_CLIENT*)
+		WIFI_CLIENT=true
+	    ;;
+	    WIFI_ACCESSPOINT*)
+		WIFI_ACCESSPOINT=true
+	    ;;
+	  esac
+        done
+
+	echo "USB_PID $USB_PID"
+	echo "USB_VID $USB_VID" 
+	#echo "ECM_ETHERNET $USE_ECM"
+	#echo "RNDIS_ETHERNET $USE_RNDIS"
+	#echo "STORAGE $USE_UMS"
+	#echo "HID $USE_HID"
+	#echo "RAWHID $USE_RAWHID"
+	#echo "MOUSE $USE_HID_MOUSE"
+	#echo "WIFI_CLIENT $WIFI_CLIENT"
+	#echo "WIFI_ACCESSPOINT $WIFI_ACCESSPOINT"
+}

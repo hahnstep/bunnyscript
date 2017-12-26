@@ -1,0 +1,80 @@
+#!/bin/sh
+
+LED (){
+   for var in $@:
+   do
+     case $var in
+         SETUP*) # Magenta solid
+           blink 1 SETUP 255 0 255 
+         ;;
+	 FAIL*)  # Red slow blink
+	   blink 2 FAIL 255 0 0 
+         ;;
+	 FAIL1*) # Red slow blink
+	   blink 2 FAIL1 255 0 0
+	 ;;
+	 FAIL2*)  # Red fast blink
+	   blink 2 FAIL2 255 0 0
+	 ;;
+     	 FAIL3*) # Red very fast blink
+	   blink 2 FAIL3 255 0 0
+	 ;;
+	 ATTACK*)# Yellow single blink
+	   blink 3 ATTACK 255 255 0 
+	 ;;
+	 STAGE1*) # Yellow single blink
+	   blink 3 STAGE1 255 255 0
+	 ;;
+         STAGE2*) # Yellow double blink
+	   blink 3 STAGE2 255 255 0
+	 ;;
+	 STAGE3*) # Yellow triple blink
+	   blink 3 STAGE3 255 255 0
+	 ;;
+	 STAGE4*) # Yellow quadruple blink
+	   blink 3 STAGE4 255 255 0 
+	 ;;
+	 STAGE5*) # Yellow quintuple blink 
+	   blink 3 STAFE5 255 255 0
+	 ;;
+	 SPECIAL*) # Cyan inverted single blink
+	   blink 4 SPECIAL 0 255 255
+	 ;;
+         SPECIAL1*) # Cyan inverted single blink
+           blink 4 SPECIAL1 0 255 255 
+         ;;
+         SPECIAL2*) # Cyan inverted double blink
+           blink 4 SPECIAL2 0 255 255
+         ;;
+	 SPECIAL3*) # Cyan inverted triple blink
+           blink 4 SPECIAL3 0 255 255
+         ;;
+         SPECIAL4*) # Cyan inverted quadriple blink
+           blink 4 SPECIAL4 0 255 255
+         ;;
+         SPECIAL5*) # Cyan inverted quintuple blink
+           blink 4 SPECIAL5 0 255 255
+         ;;
+	 CLEANUP*) # White fast blink
+	   blink 5 CLEANUP 255 255 255 
+	 ;;
+	 FINISH*) # Green 1000ms VERYFAST blink followed by SOLID
+	   blink 6 FINISH 0 255 0
+	 ;;
+	 OFF*) # Turns the LED off
+	   blink 0 OFF 0 0 0 
+	 ;;
+     esac
+   done
+}
+
+# for future 
+blink (){
+
+  # $1 count for led_blink 
+  # $2 clear text status for oled display  
+  # $3 $4 $5 is r g b for rgb led
+
+  led_blink $1
+
+}

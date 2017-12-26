@@ -1,0 +1,53 @@
+#!/bin/bash
+# https://github.com/hahnstep/bunnyscript
+source $wdir/bunnyscript/bunnyscript
+
+LED SETUP
+
+ROUTE_SPOOF=false
+HID_KEYBOARD_TEST=true
+
+lang="us" 
+
+# ATTACKMODE can only used once
+ATTACKMODE RNDIS_ETHERNET ECM_ETHERNET HID WIFI_CLIENT VID_0x1D6B PID_0x0237 
+
+LED ATTACK
+
+function onKeyboardUp()
+{
+	LED SPECIAL 
+
+	Q DELAY 2000
+	Q GUI r
+	Q DELAY 1000
+	Q STRING notepad.exe
+	Q DELAY 100
+	Q ENTER
+	Q DELAY 3000
+	Q STRING Running payload on a P4wnP1
+	Q ENTER
+
+	LED OFF
+}
+
+function onBootFinished()
+{
+        LED STAGE1
+}
+
+function onNetworkUp()
+{
+        LED STAGE2
+}
+
+function onTargetGotIP()
+{
+        LED STAGE3
+}
+
+function onLogin()
+{
+        LED STAGE5
+}
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+QUACK() {
+ echo $@ | duckhid
+} 
+
+Q() {
+ echo $@ | duckhid 
+}

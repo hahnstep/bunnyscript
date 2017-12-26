@@ -1,0 +1,6 @@
+#!/bin/sh
+wdir=/home/pi/P4wnP1
+. $wdir/bunnyscript/attackmode	# get ATTACKMODE function 
+. $wdir/bunnyscript/led		# get LED function
+. $wdir/bunnyscript/quack	# get QUACK and Q function
+
