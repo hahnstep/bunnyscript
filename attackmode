@@ -44,8 +44,8 @@ ATTACKMODE (){
 	  esac
         done
 
-	echo "USB_PID $USB_PID"
-	echo "USB_VID $USB_VID" 
+	#echo "USB_PID $USB_PID"
+	#echo "USB_VID $USB_VID" 
 	#echo "ECM_ETHERNET $USE_ECM"
 	#echo "RNDIS_ETHERNET $USE_RNDIS"
 	#echo "STORAGE $USE_UMS"
