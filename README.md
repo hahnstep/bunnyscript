@@ -18,6 +18,9 @@ There are 4 shell functions ATTACKMODE, LED, QUACK and Q.
 Its not possible to run payloads from bashbunny, the two platforms are to diffrend. <br> 
 This is for easy payload generation with a nice syntax, nothing more. 
 
+### important 
+
+Dont use the bunnyscript functions ATTACKMODE LED QUACK Q inside the payload function onLogin()
 
 ### installation 
 
@@ -139,7 +142,8 @@ quack and q supports ducky script, but no files at the moment
 
 	function onLogin()
 	{
-	        LED STAGE5
+			# dont use bunnyscript inside this function 
+	        led_blink 4
 	}
 
 

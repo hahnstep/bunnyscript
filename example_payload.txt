@@ -48,6 +48,6 @@ function onTargetGotIP()
 
 function onLogin()
 {
-        LED STAGE5
+        led_blink 4
 }
 
